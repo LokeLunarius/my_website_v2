@@ -1,0 +1,123 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.wrapper {
+    padding: 1%;
+    width: 78%;
+    margin: 0 auto;
+}
+
+.text_center {
+    text-align: center;
+}
+.clearfix {
+    float: none;
+    clear: both;
+}
+.table_full {
+    width: 100%;
+}
+.table_30_percent {
+    width: 30%;
+}
+table tr th {
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 1%;
+    text-align: left;
+}
+table tr td {
+    padding: 1%;
+}
+.button_primary {
+    background-color: rgb(120,0,0);
+    padding: 1%;
+    color: rgb(250,240,190);
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 3px;
+}
+.button_primary:hover {
+    background-color: rgb(210,0,0);
+}
+.button_secondary {
+    background-color: rgb(0,255,0);
+    padding: 1%;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 3px;
+}
+.button_secondary:hover {
+    background-color: rgb(0,210,0);
+}
+.button_danger {
+    background-color: inherit;
+    padding: 1%;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 3px;
+}
+.button_danger:hover {
+    background-color: rgb(150,150,150);
+}
+.success {
+    color: green;
+    font-weight: bold;
+}
+.fail {
+    color: red;
+    font-weight: bold;
+}
+
+/* Menu CSS */
+.menu {
+    border-bottom: 1px solid gray;
+}
+.menu ul{
+    list-style-type: none;
+}
+.menu ul li{
+    display: inline;
+    padding: 1%;
+}
+.menu ul li a{
+    text-decoration: none;
+    font-weight: bold;
+    color: rgb(100,0,0);
+}
+.menu ul li a:hover{
+    color: red;
+}
+
+/* Main Content CSS */
+.main_content {
+    background-color: rgb(240,240,240);
+    padding: 3% 0;
+}
+.col_4 {
+    width: 18%;
+    background-color: white;
+    margin: 1%;
+    padding: 1%;
+    float: left;
+}
+
+/* Footer CSS */
+.footer {
+    background-color: #2d3436;
+    color: white;
+    font-weight: bold;
+}
+/* Login CSS */
+.login
+{
+    border:1px solid gray;
+    width: 30%;
+    margin: 12% auto;
+    padding: 1%;
+}
