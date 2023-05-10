@@ -186,6 +186,26 @@ ALTER TABLE `tbl_food`
 --
 ALTER TABLE `tbl_order`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+
+CREATE TABLE tbl_hashed_web_content (
+  file_path VARCHAR(255) NOT NULL,
+  hashed_content TEXT,
+  result VARCHAR(15),
+  PRIMARY KEY (file_path)
+);
+
+CREATE TABLE `tbl_tracking_log` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `timestamp` datetime NOT NULL,
+  `ip_address` varchar(60) NOT NULL,
+  `url` varchar(150) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+-- ALTER TABLE `tbl_tracking_log`
+--   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
