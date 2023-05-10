@@ -73,7 +73,7 @@
 
                                     //Display value to table
                                     ?>
-                                         <tr>
+                                        <tr>
                                             <td><?php echo $serial_number++ ?></td>
                                             <td><?php echo $full_name ?></td>
                                             <td><?php echo $username ?></td>
@@ -89,8 +89,60 @@
                         }
                     ?>
                 </table>
+                
+                <br /><br /><br />
+                <h1>Hashed Content</h1>
+                <br /><br /><br />
+                <!-- <a href="<?php //echo shell_exec("python -m scripts.check_content");?>" class="button_primary">Scan</a>  -->
+                <a href="<?php echo SITE_URL;;?>py_activator.php" class="button_primary">Scan (still testing)</a> 
+                <a href="<?php echo SITE_URL; ?>admin/remove_hash_all.php" class="button_primary">Delete</a> 
+                <br /><br /><br />
+                <table class="table_full">
+                    <tr>
+                        <th>No.</th>
+                        <th>Path</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
 
-            </div>
+                    <?php 
+                        // Query to get all Admin
+                        $sql = "SELECT * FROM tbl_hashed_web_content";
+                        // Execute Query
+                        $res = mysqli_query($conn,$sql) or  die(mysqli_error());
+
+                        //Check
+                        if($res==TRUE)
+                        {
+                            //Count Rows to check data in Database
+                            $count = mysqli_num_rows($res);
+                            $serial_number=1;
+
+                            if($count>0)
+                            {
+                                while($rows=mysqli_fetch_assoc($res))
+                                {
+                                    $id = $rows['id'];
+                                    $file_path=$rows['file_path'];
+                                    $result=$rows['result'];
+
+                                    //Display value to table
+                                    ?>
+                                        <tr>
+                                            <td><?php echo $serial_number++ ?></td>
+                                            <td><?php echo $file_path ?></td>
+                                            <td><?php echo $result ?></td>
+                                            <td>
+                                                <a href="<?php echo SITE_URL; ?>admin/remove_hash_one.php?id=<?php echo $id; ?>" class="button_danger">Remove Admin</a>
+                                            </td>
+                                        </tr>
+                                    <?php
+                                }
+                            }
+                        }
+                    ?>
+                </table>
+          </div>
         </div>
         <!-- Main Content Section End -->
 

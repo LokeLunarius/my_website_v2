@@ -188,11 +188,13 @@ ALTER TABLE `tbl_order`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 
+
 CREATE TABLE tbl_hashed_web_content (
+  id int(10) UNSIGNED NOT NULL AUTO_INCREMENT ,
   file_path VARCHAR(255) NOT NULL,
   hashed_content TEXT,
   result VARCHAR(15),
-  PRIMARY KEY (file_path)
+  PRIMARY KEY (id)
 );
 
 CREATE TABLE `tbl_tracking_log` (

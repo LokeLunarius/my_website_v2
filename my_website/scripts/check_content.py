@@ -22,9 +22,9 @@ def write_report(prefix: str, reports: List[Report])-> str:
     formatted_time = current_time.strftime("%Y-%m-%dT%H:%M:%S")
     file_name = os.path.join('logs',f'{prefix}_{formatted_time}.csv')
     print(f'Exported to {file_name}')
-    with open(file_name, 'w') as f:
-        for report in reports:
-            f.writelines(str(report) + '\n')
+    # with open(file_name, 'w') as f:
+    #     for report in reports:
+    #         f.writelines(str(report) + '\n')
     return file_name
 
 def list_files_in_directory(directory: str, skip_dirs: List[str]):
