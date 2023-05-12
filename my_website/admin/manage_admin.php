@@ -3,9 +3,9 @@
         <!-- Main Content Section Begin -->
         <div class="main_content">
             <div class="wrapper">
-                <h1>Manage Admin</h1>
+                <!-- <h1>Manage Admin</h1> -->
                 
-                <br /><br />
+                <!-- <br /><br /> -->
                 
                 <?php 
                     if(isset($_SESSION['add'])) //check message
@@ -35,10 +35,10 @@
                     }
                 ?>
 
-                <br /><br /><br />
+                <!-- <br /><br /><br /> -->
 
                 <!-- Add Admin Button -->
-                <a href="<?php echo SITE_URL;?>admin/add_admin.php" class="button_primary">Add Admin</a>
+                <!-- <a href="<?php echo SITE_URL;?>admin/add_admin.php" class="button_primary">Add Admin</a>
 
                 <br /><br /><br /><br />
 
@@ -88,7 +88,7 @@
                             }
                         }
                     ?>
-                </table>
+                </table> -->
                 
                 <br /><br /><br />
                 <h1>Hashed Content</h1>
@@ -97,17 +97,10 @@
                 <a href="<?php echo SITE_URL;;?>py_activator.php" class="button_primary">Scan (still testing)</a> 
                 <a href="<?php echo SITE_URL; ?>admin/remove_hash_all.php" class="button_primary">Delete</a> 
                 <br /><br /><br />
-                <table class="table_full">
-                    <tr>
-                        <th>No.</th>
-                        <th>Path</th>
-                        <th>Status</th>
-                        <th>Actions</th>
-                    </tr>
-
+ 
                     <?php 
                         // Query to get all Admin
-                        $sql = "SELECT * FROM tbl_hashed_web_content";
+                        $sql = "SELECT * FROM tbl_hashed_web_content where result='changed'";
                         // Execute Query
                         $res = mysqli_query($conn,$sql) or  die(mysqli_error());
 
@@ -119,7 +112,16 @@
                             $serial_number=1;
 
                             if($count>0)
-                            {
+                            {?> 
+                                <table class="table_full">
+                                <tr>
+                                    <th>No.</th>
+                                    <th>Path</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            
+                            <?php 
                                 while($rows=mysqli_fetch_assoc($res))
                                 {
                                     $id = $rows['id'];
@@ -129,21 +131,27 @@
                                     //Display value to table
                                     ?>
                                         <tr>
-                                            <td><?php echo $serial_number++ ?></td>
+                                            <td><?php echo $id ?></td>
                                             <td><?php echo $file_path ?></td>
                                             <td><?php echo $result ?></td>
                                             <td>
-                                                <a href="<?php echo SITE_URL; ?>admin/remove_hash_one.php?id=<?php echo $id; ?>" class="button_danger">Remove Admin</a>
+                                                <a href="<?php echo SITE_URL; ?>admin/remove_hash_one.php?id=<?php echo $id; ?>" class="button_danger">Accept change</a>
                                             </td>
                                         </tr>
                                     <?php
                                 }
+                                ?>
+                                
+                                        </table>
+                                </div>
+                                </div>
+                             <?php
+                            }else{
+                                ?> Not found any changes recently
+                                <br /><br /><br /><?php
                             }
                         }
                     ?>
-                </table>
-          </div>
-        </div>
         <!-- Main Content Section End -->
 
 <?php include('Header_Footer/footer.php');?>
